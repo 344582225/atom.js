@@ -1,0 +1,26 @@
+{
+	"name": "atom",
+	"version": "0.1.0",
+	"description": "The server-side MVC framework",
+	"main": "./src/atom",
+	"author": "Samuel Ng <sng@storyair.com>",
+	"homepage": "https://github.com/OGrape/atom",
+	"license": "MIT",
+	"dependencies": {
+		"engine.io": "1.5.1",
+		"engine.io-client": "1.5.1",
+		"object-hash": "0.5.0",
+		"browserify": "9.0.8"
+	},
+	"devDependencies": {
+		"mocha": "1.12.0",
+		"expect.js": "0.2.0"
+	},
+	"scripts": { 
+		"test" : "make test" 
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:OGrape/atom.git"
+	}
+}
