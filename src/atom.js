@@ -113,7 +113,7 @@ Atom.prototype.route = function(defaultRoute, routes) {
 					module = route[i],
 					matcher = new RegExp('^' + path.replace(/:[^\/]+?\.{3}/g, '(.*?)').replace(/:[^\/]+/g, '([^\\/]+)') + '\/?$');
 				if (matcher.test(req.url)) {
-					res.end( atom.render.call(atom, module.controller, module.view) );
+					res.end( atom.render.call(atom, module.controller, module.view, module.options || {}) );
 				}
 			}
 		}
@@ -283,7 +283,7 @@ Atom.prototype.sync = function(socket, stream, msg) {
 		var controller = stream.controllers[ path ],
 			events = stream.events[ path ];
 		var obj = {
-			event: 'sync', 
+			event: 'sync',
 			nodes: this.compile.call(this, controller, module.view, events)
 		};
 		socket.send(JSON.stringify(obj));
