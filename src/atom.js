@@ -85,9 +85,10 @@ Atom.prototype.route = function(defaultRoute, routes) {
 
 		syncjs = undefined,
 
-		pack = require('browserify')({ standalone: 'Atom' });
+		pack = require('browserify')({ standalone: 'Atom', debug: true });
 
 	pack.add(__dirname + '/client/index.js');
+	pack.plugin('minifyify', { map: false, minify: true, uglify: true });
 
 	pack.bundle(function(err, buf) {
 		syncjs = buf.toString('utf8');
