@@ -10,8 +10,7 @@
 		"engine.io": "1.5.1",
 		"engine.io-client": "1.5.1",
 		"object-hash": "0.5.0",
-		"browserify": "9.0.8",
-		"minifyify": "7.0.0"
+		"browserify": "9.0.8"
 	},
 	"devDependencies": {
 		"mocha": "1.12.0",
