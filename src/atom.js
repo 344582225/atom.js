@@ -85,13 +85,13 @@ Atom.prototype.route = function(defaultRoute, routes) {
 
 		syncjs = undefined,
 
-		pack = require('browserify')({ standalone: 'Atom', debug: true });
+		buildify = require('buildify'),
+		pack = require('browserify')({ standalone: 'Atom' });
 
 	pack.add(__dirname + '/client/index.js');
-	// pack.plugin('minifyify', { map: false, minify: true, uglify: true });
 
 	pack.bundle(function(err, buf) {
-		syncjs = buf.toString('utf8');
+		syncjs = buildify().setContent(buf.toString('utf8')).uglify().getContent();
 	});
 
 	if (typeof defaultRoute == 'string') {
